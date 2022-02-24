@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
+using System.Collections;
 
 class Program
 {
@@ -12,8 +14,8 @@ class Program
         //
         for(int i = 0; i < dot.Length; i++)
         {
-            dot[i] = new Dot();
-            Console.WriteLine("Dot: " + dot[i].Id);
+            dot[i] = new Dot(Vector.zero);
+            dot[i].Draw();
         }
         Console.ReadLine();
     }

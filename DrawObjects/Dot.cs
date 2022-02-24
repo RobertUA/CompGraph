@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class Dot
+public class Dot : Drawable
 {
-    private static int count=0;
-    public int Id;
-    public Dot()
+    public Vector vector;
+    public Dot(Vector vector)
     {
-        Id = count++;
+        this.vector = vector;
     }
+    public override void Draw()
+    {
+        base.Draw();
+        Console.WriteLine("Obj class: " + GetType().ToString());
+    }
+
 }
