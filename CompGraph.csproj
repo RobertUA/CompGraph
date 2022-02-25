@@ -47,6 +47,8 @@
     <Compile Include="DrawObjects\Circle.cs" />
     <Compile Include="DrawObjects\Dot.cs" />
     <Compile Include="DrawObjects\Drawable.cs" />
+    <Compile Include="DrawObjects\Plane.cs" />
+    <Compile Include="Utils\Raycast.cs" />
     <Compile Include="DrawObjects\Triangle.cs" />
     <Compile Include="Utils\Vector.cs" />
     <Compile Include="Program.cs" />
