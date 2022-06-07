@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Numerics;
 using System.Collections;
 
 class Program
 {
     static void Main(string[] args)
     {
+        
         List<Drawable> drawable = new List<Drawable>();
         //
         //dot
-        Dot dot = new Dot(Vector.zero);
-        drawable.Add(dot);
+        // Dot dot = new Dot(Vector.zero);
+        // drawable.Add(dot);
         //circle
         Circle circle = new Circle(Vector.zero, Vector.forward, 10);
         drawable.Add(circle);
