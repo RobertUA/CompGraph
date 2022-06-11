@@ -11,15 +11,9 @@ public class Circle : Drawable
         this.normal = normal;
         this.diameter = diameter;
     }
-
-    public override Vector GetIntersection(Vector start,Vector direction)
-    {
-        throw new NotImplementedException();
-    }
-
     public override void Draw()
     {
-       
+        base.Draw();
         Console.WriteLine("Obj class: " + GetType().ToString());
     }
 }

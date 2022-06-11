@@ -1,6 +1,6 @@
 ﻿using System;
 
-public abstract class Drawable
+public class Drawable
 {
     public static int count = 0;
     protected int Id;
@@ -8,12 +8,12 @@ public abstract class Drawable
     {
         Id = count++;
     }
-
-    public abstract Vector GetIntersection(Vector start,Vector direction);
-    public abstract void Draw();
+    public virtual void Draw()
+    {
+        Console.WriteLine("Drawed obj " + Id);
+    }
     public int GetID()
     {
         return Id;
     }
-    
 }

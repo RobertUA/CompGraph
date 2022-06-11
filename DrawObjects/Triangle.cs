@@ -9,14 +9,9 @@ public class Triangle : Drawable
         corners[1] = secondCorner;
         corners[2] = thirdCorner;
     }
-
-    public override Vector GetIntersection(Vector start,Vector direction)
-    {
-        throw new NotImplementedException();
-    }
-
     public override void Draw()
     {
+        base.Draw();
         Console.WriteLine("Obj class: " + GetType().ToString());
     }
 }
