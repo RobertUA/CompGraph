@@ -1,13 +1,11 @@
 ﻿
-public class Circle : Drawable
+class Sphere : Drawable
 {
     public Vector Center;
-    public Vector Normal;
     public float Diameter;
-    public Circle(Vector center, Vector normal, float diameter)
+    public Sphere(Vector center, float diameter)
     {
         Center = center;
-        Normal = normal;
         Diameter = diameter;
     }
     public override HitInfo GetInretsection(Ray ray)

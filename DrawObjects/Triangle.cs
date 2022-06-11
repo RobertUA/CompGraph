@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 public class Triangle : Drawable
 {
     Vector[] corners = new Vector[3];
@@ -9,9 +8,8 @@ public class Triangle : Drawable
         corners[1] = secondCorner;
         corners[2] = thirdCorner;
     }
-    public override void Draw()
+    public override HitInfo GetInretsection(Ray ray)
     {
-        base.Draw();
-        Console.WriteLine("Obj class: " + GetType().ToString());
+        return null;
     }
 }
