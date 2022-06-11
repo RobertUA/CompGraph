@@ -10,6 +10,13 @@ public class Plane : Drawable
     }
     public override HitInfo GetInretsection(Ray ray)
     {
+        var denom = Vector.Dot(Normal, ray.Direction);
+        if (denom > 1e-6)
+        {
+            var p010 = Position - ray.StartPosition;
+            var t = Vector.Dot(p010, Normal) / denom;
+            return new HitInfo(ray.StartPosition + ray.Direction * t,null);
+        }
         return null;
     }
 }

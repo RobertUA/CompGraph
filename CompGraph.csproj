@@ -45,17 +45,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrawObjects\Circle.cs" />
-    <Compile Include="DrawObjects\Dot.cs" />
     <Compile Include="DrawObjects\Drawable.cs" />
     <Compile Include="DrawObjects\Plane.cs" />
-    <Compile Include="Utils\Raycast.cs" />
+    <Compile Include="DrawObjects\Sphere.cs" />
+    <Compile Include="Utils\Camera.cs" />
+    <Compile Include="Utils\HitInfo.cs" />
+    <Compile Include="Utils\LightSource.cs" />
+    <Compile Include="Utils\Pixel.cs" />
+    <Compile Include="Utils\Ray.cs" />
     <Compile Include="DrawObjects\Triangle.cs" />
+    <Compile Include="Utils\Scene.cs" />
+    <Compile Include="Utils\Screen.cs" />
+    <Compile Include="Utils\Tools.cs" />
     <Compile Include="Utils\Vector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
