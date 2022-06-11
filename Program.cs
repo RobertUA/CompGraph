@@ -10,14 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Drawable> drawable = new List<Drawable>();
-        //
-        //circle
-        Circle circle = new Circle(Vector.zero, Vector.forward, 10);
-        drawable.Add(circle);
-        //triangle
-        Triangle triangle = new Triangle(Vector.zero, Vector.right, Vector.up);
-        drawable.Add(triangle);
+        Scene scene = new Scene();
         Console.ReadLine();
     }
 }
