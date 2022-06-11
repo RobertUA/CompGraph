@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrawObjects\Circle.cs" />
+    <Compile Include="DrawObjects\Dot.cs" />
     <Compile Include="DrawObjects\Drawable.cs" />
     <Compile Include="DrawObjects\Plane.cs" />
     <Compile Include="Utils\Raycast.cs" />

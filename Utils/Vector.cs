@@ -18,7 +18,7 @@ public class Vector
     {
         return this / GetMagnitude();
     }
-    public static Vector Cross(Vector a, Vector b)
+    public static Vector GetVectorProduct(Vector a, Vector b)
     {
         return new Vector
         (
@@ -27,14 +27,13 @@ public class Vector
             a.x * b.y - a.y * b.x
         );
     }
-    public static float Dot(Vector a, Vector b)
+    public static float GetScalarProduct(Vector a, Vector b)
     {
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
-    
     public float GetProjection(Vector b)
     {
-        return Dot(this, b) / b.GetMagnitude();
+        return GetScalarProduct(this, b) / b.GetMagnitude();
     }
     //Equals & GetHashCode
     public override bool Equals(object other)
