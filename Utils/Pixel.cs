@@ -5,7 +5,7 @@ class Pixel
 {
     public int X, Y;
     public Screen Screen;
-    public string Value = "-";
+    public string Value = " ";
     public Pixel(Screen screen, int x, int y)
     {
         Screen = screen;

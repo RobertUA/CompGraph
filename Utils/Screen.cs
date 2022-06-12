@@ -22,14 +22,20 @@ class Screen
     }
     public void Update()
     {
+        for (int x = 0; x < Width+2; x++) Console.Write("=");
+        Console.WriteLine();
         for (int y = 0; y < Height; y++)
         {
+            Console.Write("|");
             for (int x = 0; x < Width; x++)
             {
                 Pixels[x][y].Update();
                 Console.Write(Pixels[x][y].Value);
             }
+            Console.Write("|");
             Console.WriteLine();
         }
+        for (int x = 0; x < Width+2; x++) Console.Write("=");
+        Console.WriteLine();
     }
 }
