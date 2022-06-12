@@ -15,4 +15,8 @@ class Camera
         TargetScreen = targetScreen;
         TargetScreen.Camera = this;
     }
+    public void Move(Vector moveDirection)
+    {
+        Position += moveDirection;
+    }
 }
