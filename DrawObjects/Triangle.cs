@@ -10,7 +10,7 @@ public class Triangle : Drawable
         corners[1] = secondCorner;
         corners[2] = thirdCorner;
     }
-
+    
     public override HitInfo GetIntersection(Ray ray)
     {
         const double eps = 0.0000001;
@@ -59,6 +59,13 @@ public class Triangle : Drawable
         {
             return null;
         }
-        return new HitInfo(P,null,this);
+        return new HitInfo(P,findNormal(),this);
+    }
+
+    private Vector findNormal()
+    {
+        var A = corners[1] - corners[0];
+        var B = corners[2] - corners[0];
+        return Vector.Cross(A ,B);
     }
 }

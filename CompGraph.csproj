@@ -54,11 +54,11 @@
     <Compile Include="DrawObjects\Drawable.cs" />
     <Compile Include="DrawObjects\Plane.cs" />
     <Compile Include="DrawObjects\Sphere.cs" />
-    <Compile Include="Tests\BaseIntersectTest.cs" />
-    <Compile Include="Tests\PlaneIntersectTest.cs" />
-    <Compile Include="Tests\RaycastTest.cs" />
-    <Compile Include="Tests\SphereIntersectTest.cs" />
-    <Compile Include="Tests\TriangleIntersectTest.cs" />
+    <Compile Include="Tests\intersection\BaseIntersectTest.cs" />
+    <Compile Include="Tests\intersection\PlaneIntersectTest.cs" />
+    <Compile Include="Tests\intersection\SphereIntersectTest.cs" />
+    <Compile Include="Tests\intersection\TriangleIntersectTest.cs" />
+    <Compile Include="Tests\raycast\RaycastTest.cs" />
     <Compile Include="Utils\Camera.cs" />
     <Compile Include="Utils\HitInfo.cs" />
     <Compile Include="Utils\LightSource.cs" />
