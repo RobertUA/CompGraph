@@ -10,6 +10,12 @@ public class Vector
         this.z = z;
     }
     //методы
+    public Vector Rotate(float angle, Vector axis)
+    {
+        angle /= 180f / (float)Math.PI; //to radians
+        return this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Vector.Dot(axis, this) * (1 - (float)Math.Cos(angle)));
+    }
+    
     public float GetMagnitude()
     {
         return (float) Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
@@ -65,6 +71,10 @@ public class Vector
        => new Vector(a.x / f, a.y / f, a.z / f);
     /*public static float operator *(Vector a, Vector b)
        => GetScalarProduct(a, b);*/
+    public override string ToString()
+    {
+        return "(" + Math.Round(x,1) + "|" + (float)Math.Round(y, 1) + "|" + (float)Math.Round(z, 1) + ")";
+    }
     //стандартные наборы
     public static Vector zero = new Vector(0, 0, 0);
     public static Vector one = new Vector(1, 1, 1);
@@ -72,9 +82,16 @@ public class Vector
     public static Vector up = new Vector(0, 1, 0);
     public static Vector forward = new Vector(0, 0, 1);
     //статичные методы
-    public static float Distance(Vector fromPosition, Vector toPosition)
+    public static float Distance(Vector startVector, Vector endVector)
     {
-        Vector vector = toPosition - fromPosition;
+        Vector vector = endVector - startVector;
         return vector.GetMagnitude();
     }
+    public static Vector Lerp(Vector startVector, Vector endVector, float t)
+    {
+        Vector addVector = (endVector-startVector)*t;
+        return startVector+addVector;
+    }
+
+
 }

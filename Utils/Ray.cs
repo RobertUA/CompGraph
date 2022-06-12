@@ -1,5 +1,5 @@
 ﻿
-public struct Ray
+public class Ray
 {
     public Vector StartPosition;
     public Vector Direction;
