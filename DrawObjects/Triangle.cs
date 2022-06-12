@@ -26,8 +26,8 @@ public class Triangle : Drawable
             return null;
         }
 
-        var d = -(Vector.Dot(normal, corners[0]));
-        t = -(Vector.Dot(normal, ray.StartPosition) + d);
+        var d = -Vector.Dot(normal, corners[0]);
+        t = -(Vector.Dot(normal, ray.StartPosition) + d)/normalRayDirection;
         if (t < 0)
         {
             return null;
