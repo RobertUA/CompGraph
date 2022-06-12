@@ -3,28 +3,22 @@ using NUnit.Framework;
 
 public abstract class BaseIntersectTest
 {
-    protected Drawable testFigure;
+    protected Drawable TestFigure;
     
-
-    protected Ray setupRay(Vector rayStart,Vector rayDirection)
+    protected void CheckRaysIntersection()
     {
-        return new Ray(rayStart, rayDirection);
-    }
-
-    protected void checkRaysIntersection()
-    {
-        foreach (var ray in initRaysWithIntersect())
+        foreach (var ray in InitRaysWithIntersect())
         {
-            Assert.NotNull(testFigure.GetIntersection(ray));
+            Assert.NotNull(TestFigure.GetIntersection(ray));
         }
     }
-    protected void checkRaysNoIntersection()
+    protected void CheckRaysNoIntersection()
     {
-        foreach (var ray in initRaysWithoutIntersect())
+        foreach (var ray in InitRaysWithoutIntersect())
         {
-            Assert.Null(testFigure.GetIntersection(ray));
+            Assert.Null(TestFigure.GetIntersection(ray));
         }
     }
-    protected abstract List<Ray> initRaysWithIntersect();
-    protected abstract List<Ray> initRaysWithoutIntersect();
+    protected abstract List<Ray> InitRaysWithIntersect();
+    protected abstract List<Ray> InitRaysWithoutIntersect();
 }

@@ -1,21 +1,38 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 
 
-public class PlaneIntersectTest
+public class PlaneIntersectTest: BaseIntersectTest
 {
+    [SetUp]
+    public void Setup()
+    {
+        TestFigure = new Plane(Vector.zero, Vector.up);
+    }
+    
     [Test]
     public void RayPlaneIntersectShouldNotIntersect()
     {
-        var Plane = new Plane(Vector.zero, Vector.up);
-        var Ray = new Ray(new Vector(0,6,0), Vector.up);
-        Assert.Null(Plane.GetIntersection(Ray));
+        CheckRaysNoIntersection();
     }
     
     [Test]
     public void RayPlaneIntersectShouldIntersect()
     {
-        var Plane = new Plane(Vector.zero, Vector.up);
-        var Ray = new Ray(new Vector(0,6,0), -Vector.up);
-        Assert.NotNull(Plane.GetIntersection(Ray));
+        CheckRaysIntersection();
+    }
+
+    protected override List<Ray> InitRaysWithIntersect()
+    {
+        var rays = new List<Ray>();
+        rays.Add(new Ray(new Vector(0,6,0), -Vector.up));
+        return rays;
+    }
+
+    protected override List<Ray> InitRaysWithoutIntersect()
+    {
+        var rays = new List<Ray>();
+        rays.Add(new Ray(new Vector(0,6,0), Vector.up));
+        return rays;
     }
 }

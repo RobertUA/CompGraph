@@ -6,45 +6,45 @@ public class SphereIntersectTest : BaseIntersectTest
     [SetUp]
     public void Setup()
     {
-        testFigure = new Sphere(new Vector(0, 0, 0), 1);
+        TestFigure = new Sphere(new Vector(0, 0, 0), 1);
     }
     [Test]
     public void RaySphereIntersectShouldNotIntersect()
     {
-        checkRaysNoIntersection();
+        CheckRaysNoIntersection();
     }
     
     [Test]
     public void RaySphereIntersectShouldIntersect()
     {
-        checkRaysIntersection();
+        CheckRaysIntersection();
     }
 
-    protected override List<Ray> initRaysWithIntersect()
+    protected override List<Ray> InitRaysWithIntersect()
     {
         // Outside
         var testRaysWithIntersect = new List<Ray>();
-        testRaysWithIntersect.Add(setupRay(new Vector(-1,-1,-1),Vector.one));
-        testRaysWithIntersect.Add(setupRay(new Vector(-1,-1,-1),new Vector(1,0,1)));
-        testRaysWithIntersect.Add(setupRay(new Vector(-1,-1,-1),new Vector(0,1,1)));
+        testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.one));
+        testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),new Vector(1,0,1)));
+        testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),new Vector(0,1,1)));
         
         // On the sphere
-        testRaysWithIntersect.Add(setupRay(Vector.right, Vector.one));
-        testRaysWithIntersect.Add(setupRay(Vector.up, new Vector(1,0,1)));
-        testRaysWithIntersect.Add(setupRay(Vector.forward, new Vector(0,1,1)));
+        testRaysWithIntersect.Add(new Ray(Vector.right, Vector.one));
+        testRaysWithIntersect.Add(new Ray(Vector.up, new Vector(1,0,1)));
+        testRaysWithIntersect.Add(new Ray(Vector.forward, new Vector(0,1,1)));
         
         // From Sphere centre
-        testRaysWithIntersect.Add(setupRay(Vector.zero, Vector.right));
+        testRaysWithIntersect.Add(new Ray(Vector.zero, Vector.right));
 
         return testRaysWithIntersect;
     }
 
-    protected override List<Ray> initRaysWithoutIntersect()
+    protected override List<Ray> InitRaysWithoutIntersect()
     {
         var testRaysWithoutIntersect = new List<Ray>();
-        testRaysWithoutIntersect.Add(setupRay(new Vector(-1,-1,-1),Vector.right));
-        testRaysWithoutIntersect.Add(setupRay(new Vector(-1,-1,-1),Vector.up));
-        testRaysWithoutIntersect.Add(setupRay(new Vector(-1,-1,-1),Vector.forward));
+        testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.right));
+        testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.up));
+        testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.forward));
         
         return testRaysWithoutIntersect;
     }
