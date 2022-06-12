@@ -8,7 +8,7 @@ public class Tools
         List<HitInfo> hits = new List<HitInfo>();
         foreach (Drawable obj in Scene.Instance.Drawables)
         {
-            HitInfo hit = obj.GetInretsection(ray);
+            HitInfo hit = obj.GetIntersection(ray);
             if (hit != null) hits.Add(hit);
         }
         if (hits.Count > 0) return hits;
@@ -22,7 +22,7 @@ public class Tools
         if (hits == null) return null;
         for (int i = 0; i < hits.Count; i++)
         {
-            float dist = Vector.Distance(hits[i].HitPosition, ray.StartPosition);
+            float dist = Vector.Distance(hits[i].Position, ray.StartPosition);
             if (minDist > dist)
             {
                 minDist = dist;

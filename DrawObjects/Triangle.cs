@@ -11,7 +11,7 @@ public class Triangle : Drawable
         corners[2] = thirdCorner;
     }
 
-    public override HitInfo GetInretsection(Ray ray)
+    public override HitInfo GetIntersection(Ray ray)
     {
         const double eps = 0.0000001;
         float t;

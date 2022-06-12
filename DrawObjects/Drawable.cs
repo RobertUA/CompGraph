@@ -7,7 +7,7 @@ public abstract class Drawable
     {
         Id = count++;
     }
-    public abstract HitInfo GetInretsection(Ray ray);
+    public abstract HitInfo GetIntersection(Ray ray);
     public int GetID()
     {
         return Id;

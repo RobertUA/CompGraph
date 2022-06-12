@@ -11,7 +11,7 @@ public class Plane : Drawable
         Normal = normal;
     }
 
-    public override HitInfo GetInretsection(Ray ray)
+    public override HitInfo GetIntersection(Ray ray)
     {
         var denom = Vector.Dot(Normal, ray.Direction);
         if (Math.Abs(denom) > 0.0001f)

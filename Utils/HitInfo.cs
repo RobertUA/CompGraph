@@ -1,11 +1,11 @@
 ﻿
 public class HitInfo
 {
-    public Vector HitPosition;
-    public Vector HitNormal;
+    public Vector Position;
+    public Vector Normal;
     public HitInfo(Vector hitPosition, Vector hitNormal)
     {
-        HitPosition = hitPosition;
-        HitNormal = hitNormal;
+        Position = hitPosition;
+        Normal = hitNormal;
     }
 }

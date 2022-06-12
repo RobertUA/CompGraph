@@ -11,7 +11,7 @@ class Sphere : Drawable
         Diameter = diameter;
     }
 
-    public override HitInfo GetInretsection(Ray ray)
+    public override HitInfo GetIntersection(Ray ray)
     {
         var L = ray.StartPosition - Center;
         var a = Vector.Dot(ray.Direction, ray.Direction);

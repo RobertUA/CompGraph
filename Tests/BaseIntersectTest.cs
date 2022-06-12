@@ -15,14 +15,14 @@ public abstract class BaseIntersectTest
     {
         foreach (var ray in initRaysWithIntersect())
         {
-            Assert.NotNull(testFigure.GetInretsection(ray));
+            Assert.NotNull(testFigure.GetIntersection(ray));
         }
     }
     protected void checkRaysNoIntersection()
     {
         foreach (var ray in initRaysWithoutIntersect())
         {
-            Assert.Null(testFigure.GetInretsection(ray));
+            Assert.Null(testFigure.GetIntersection(ray));
         }
     }
     protected abstract List<Ray> initRaysWithIntersect();

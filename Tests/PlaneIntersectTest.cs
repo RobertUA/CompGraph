@@ -8,7 +8,7 @@ public class PlaneIntersectTest
     {
         var Plane = new Plane(Vector.zero, Vector.up);
         var Ray = new Ray(new Vector(0,6,0), Vector.up);
-        Assert.Null(Plane.GetInretsection(Ray));
+        Assert.Null(Plane.GetIntersection(Ray));
     }
     
     [Test]
@@ -16,6 +16,6 @@ public class PlaneIntersectTest
     {
         var Plane = new Plane(Vector.zero, Vector.up);
         var Ray = new Ray(new Vector(0,6,0), -Vector.up);
-        Assert.NotNull(Plane.GetInretsection(Ray));
+        Assert.NotNull(Plane.GetIntersection(Ray));
     }
 }

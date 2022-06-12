@@ -54,9 +54,15 @@ public class Vector
     }
     //переопределенные операторы
     public static bool operator ==(Vector a, Vector b)     // a==b
-        => a.Equals(b);
+    {
+        if (ReferenceEquals(a, b)) return true;
+        if (ReferenceEquals(a, null)) return false;
+        return a.Equals(b);
+    }
     public static bool operator !=(Vector a, Vector b)     // a!=b
-        => !a.Equals(b);
+    {
+        return !a.Equals(b);
+    }
     public static Vector operator -(Vector a)               // -a
         => new Vector(-a.x, -a.y, -a.z);
     public static Vector operator +(Vector a, Vector b)     // a+b

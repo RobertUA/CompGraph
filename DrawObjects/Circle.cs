@@ -10,7 +10,7 @@ public class Circle : Drawable
         Normal = normal;
         Diameter = diameter;
     }
-    public override HitInfo GetInretsection(Ray ray)
+    public override HitInfo GetIntersection(Ray ray)
     {
         return null;
     }

@@ -15,9 +15,15 @@ class Pixel
     public void SetValue(HitInfo hit)
     {
         if (hit == null) Value = " ";
+        else if (hit.Normal == null) Value = "#";
         else
         {
-            Value = "#";
+            float scalarProduct = Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
+            if (scalarProduct < 0) Value = " ";
+            else if (scalarProduct < 0.2f) Value = ".";
+            else if (scalarProduct < 0.5f) Value = "*";
+            else if (scalarProduct < 0.8f) Value = "O";
+            else Value = "#";
         }
     }
     public void Update()

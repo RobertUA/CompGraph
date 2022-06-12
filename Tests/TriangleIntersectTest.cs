@@ -7,7 +7,7 @@ public class TriangleIntersectTest
     {
         var Triangle = new Triangle(new Vector(1,1,1),new Vector(2,2,2),new Vector(3,3,3));
         var Ray = new Ray(new Vector(0,6,0), Vector.up);
-        Assert.Null(Triangle.GetInretsection(Ray));
+        Assert.Null(Triangle.GetIntersection(Ray));
     }
     
     [Test]
@@ -15,6 +15,6 @@ public class TriangleIntersectTest
     {
         var Triangle = new Triangle(new Vector (-2,0,-2), new Vector (2,0,-2), new Vector (0,0,2));
         var Ray = new Ray(new Vector(0,6,0), -Vector.up);
-        Assert.NotNull(Triangle.GetInretsection(Ray));
+        Assert.NotNull(Triangle.GetIntersection(Ray));
     }
 }
