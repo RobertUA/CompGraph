@@ -71,4 +71,10 @@ public class Vector
     public static Vector right = new Vector(1, 0, 0);
     public static Vector up = new Vector(0, 1, 0);
     public static Vector forward = new Vector(0, 0, 1);
+    //статичные методы
+    public static float Distance(Vector fromPosition, Vector toPosition)
+    {
+        Vector vector = toPosition - fromPosition;
+        return vector.GetMagnitude();
+    }
 }
