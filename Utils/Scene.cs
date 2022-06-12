@@ -20,8 +20,8 @@ class Scene
         Drawables.Add(sphere1);
         Sphere sphere2 = new Sphere(new Vector(1, 0.5f, 0), 1.25f);
         Drawables.Add(sphere2);
-        Drawables.Add(new Triangle(new Vector(-2, 0, 0),
-                                            new Vector(2, 0, 0),
+        Drawables.Add(new Triangle(new Vector(-2, -0.1f, 0),
+                                            new Vector(2, -0.1f, 0),
                                             new Vector(0, -2, 0)));
         //---- Start
         screen.Update();
