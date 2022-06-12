@@ -29,6 +29,7 @@ public class Tools
                 minIndex = i;
             }
         }
+        if (minIndex == -1) return null;
         return hits[minIndex];
     }
 }

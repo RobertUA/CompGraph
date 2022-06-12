@@ -13,14 +13,14 @@ public class Vector
     public Vector Rotate(float angle, Vector axis)
     {
         angle /= 180f / (float)Math.PI; //to radians
-        return this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Vector.Dot(axis, this) * (1 - (float)Math.Cos(angle)));
+        Vector newVector = this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Vector.Dot(axis, this) * (1 - (float)Math.Cos(angle)));
+        return newVector;
     }
-    
     public float GetMagnitude()
     {
         return (float) Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
     }
-    public Vector GetNormalizedVector()
+    public Vector GetNormalized()
     {
         return this / GetMagnitude();
     }
@@ -44,6 +44,7 @@ public class Vector
     //Equals & GetHashCode
     public override bool Equals(object other)
     {
+        if (other == null) return false;
         Vector b = other as Vector;
         return x == b.x && y == b.y && z == b.z;
     }

@@ -21,7 +21,7 @@ class Scene
     {
         Instance = this;
         //---- Setup
-        LightSource = new LightSource(new Vector(0, -1, -2).GetNormalizedVector());
+        LightSource = new LightSource(new Vector(0, -1, -2).GetNormalized());
         Screen = new Screen(60, 30);
         Camera = new Camera(new Vector(0, 0, -4f), Vector.forward, 40, 35, Screen);
         //---- Drawables

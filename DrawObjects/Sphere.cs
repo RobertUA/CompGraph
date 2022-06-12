@@ -22,7 +22,8 @@ class Sphere : Drawable
         {
             return null;
         }
-        return new HitInfo(ray.StartPosition + ray.Direction * t,null,this);
+        Vector position = ray.StartPosition + ray.Direction * t;
+        return new HitInfo(position, (position - Center).GetNormalized(), this);
     }
 
     private float solveDiscriminant(float a, float b, float c)
