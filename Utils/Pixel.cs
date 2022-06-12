@@ -12,9 +12,13 @@ class Pixel
         X = x;
         Y = y;
     }
-    public void SetValue(string value)
+    public void SetValue(HitInfo hit)
     {
-        Value = value;
+        if (hit == null) Value = " ";
+        else
+        {
+            Value = "#";
+        }
     }
     public void Update()
     {
@@ -22,9 +26,6 @@ class Pixel
         float angleVertical = -((Y - Screen.Height / 2f) / (Screen.Height / 2f)) * Screen.Camera.VerticalFOV;
         Vector direction = Screen.Camera.Direction.Rotate(angleHorizontal, Vector.up).Rotate(angleVertical, Vector.right);
         HitInfo hit = Tools.Raycast(new Ray(Screen.Camera.Position, direction));
-        if (hit != null)
-        {
-            Value = "#";
-        }
+        SetValue(hit);
     }
 }
