@@ -8,6 +8,15 @@ class Scene
     public LightSource LightSource;
     public List<Drawable> Drawables = new List<Drawable>();
     public static Scene Instance;
+    
+    public Scene(List<Drawable> drawables,LightSource lightSource)
+    {
+        Drawables = drawables;
+        // LOH
+        LightSource = lightSource;
+        Instance = this;
+    }
+
     public Scene()
     {
         Instance = this;

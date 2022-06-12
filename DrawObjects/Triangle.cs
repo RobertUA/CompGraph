@@ -59,6 +59,6 @@ public class Triangle : Drawable
         {
             return null;
         }
-        return new HitInfo(P,null);
+        return new HitInfo(P,null,this);
     }
 }

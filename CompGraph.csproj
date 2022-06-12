@@ -56,6 +56,7 @@
     <Compile Include="DrawObjects\Sphere.cs" />
     <Compile Include="Tests\BaseIntersectTest.cs" />
     <Compile Include="Tests\PlaneIntersectTest.cs" />
+    <Compile Include="Tests\RaycastTest.cs" />
     <Compile Include="Tests\SphereIntersectTest.cs" />
     <Compile Include="Tests\TriangleIntersectTest.cs" />
     <Compile Include="Utils\Camera.cs" />
@@ -78,6 +79,21 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
+    <Content Include="packages\NUnit.3.13.3\.signature.p7s" />
+    <Content Include="packages\NUnit.3.13.3\build\NUnit.props" />
+    <Content Include="packages\NUnit.3.13.3\CHANGES.md" />
+    <Content Include="packages\NUnit.3.13.3\icon.png" />
+    <Content Include="packages\NUnit.3.13.3\lib\net35\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net35\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\net40\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net40\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\net45\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net45\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\netstandard2.0\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\netstandard2.0\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\LICENSE.txt" />
+    <Content Include="packages\NUnit.3.13.3\NOTICES.txt" />
+    <Content Include="packages\NUnit.3.13.3\NUnit.3.13.3.nupkg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -22,7 +22,7 @@ class Sphere : Drawable
         {
             return null;
         }
-        return new HitInfo(ray.StartPosition + ray.Direction * t,null);
+        return new HitInfo(ray.StartPosition + ray.Direction * t,null,this);
     }
 
     private float solveDiscriminant(float a, float b, float c)

@@ -19,7 +19,7 @@ public class Plane : Drawable
             var t = Vector.Dot(Position - ray.StartPosition, Normal) / denom;
             if (t >= 0)
             {
-                return new HitInfo(ray.StartPosition + ray.Direction * t, null);
+                return new HitInfo(ray.StartPosition + ray.Direction * t, null,this);
             }
         }
 
