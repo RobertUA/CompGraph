@@ -12,9 +12,9 @@ public class Vector
     //методы
     public Vector Rotate(float angle, Vector axis)
     {
-        angle /= 180f / (float)Math.PI; //to radians
-        Vector newVector = this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Vector.Dot(axis, this) * (1 - (float)Math.Cos(angle)));
-        return newVector;
+        angle = angle * (float)Math.PI / 180f; //to radians
+        Vector newVector = this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Dot(axis, this) * (1 - (float)Math.Cos(angle)));
+        return newVector.GetNormalized() * GetMagnitude();
     }
     public float GetMagnitude()
     {
@@ -80,7 +80,7 @@ public class Vector
        => GetScalarProduct(a, b);*/
     public override string ToString()
     {
-        return "(" + Math.Round(x,1) + "|" + (float)Math.Round(y, 1) + "|" + (float)Math.Round(z, 1) + ")";
+        return "(" + Math.Round(x,2) + "|" + (float)Math.Round(y, 2) + "|" + (float)Math.Round(z, 2) + ")";
     }
     //стандартные наборы
     public static Vector zero = new Vector(0, 0, 0);

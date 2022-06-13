@@ -4,11 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         Console.CursorVisible = false;
         Scene scene = new Scene();
-        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-        while (keyInfo.Key != ConsoleKey.Escape) 
+        ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
+        while (keyInfo.Key != ConsoleKey.Escape)
         {
+            keyInfo = Console.ReadKey(true);
             switch (keyInfo.Key)
             {
                 case ConsoleKey.W:
@@ -59,18 +61,6 @@ class Program
                         Update();
                         break;
                     }
-                case ConsoleKey.R:
-                    {
-                        Scene.Instance.Camera.RotateX(-15);
-                        Update();
-                        break;
-                    }
-                case ConsoleKey.T:
-                    {
-                        Scene.Instance.Camera.RotateX(15);
-                        Update();
-                        break;
-                    }
                 case ConsoleKey.RightArrow:
                     {
                         Scene.Instance.LightSource.RotateY(15);
@@ -83,20 +73,7 @@ class Program
                         Update();
                         break;
                     }
-                case ConsoleKey.UpArrow:
-                    {
-                        Scene.Instance.LightSource.RotateX(-15);
-                        Update();
-                        break;
-                    }
-                case ConsoleKey.DownArrow:
-                    {
-                        Scene.Instance.LightSource.RotateX(15);
-                        Update();
-                        break;
-                    }
             }
-            keyInfo = Console.ReadKey(true);
         }
     }
     public static void Update()

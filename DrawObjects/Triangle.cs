@@ -10,24 +10,22 @@ public class Triangle : Drawable
         corners[1] = secondCorner;
         corners[2] = thirdCorner;
     }
-    
     public override HitInfo GetIntersection(Ray ray)
     {
-        const double eps = 0.0000001;
         float t;
         var firstV0 = corners[1] - corners[0];
         var secondV0 = corners[2] - corners[0];
         var normal = Vector.Cross(firstV0, secondV0);
-        var area = Math.Sqrt((normal.x * normal.x + normal.y * normal.y + normal.z * normal.z));
+        //var area = Math.Sqrt((normal.x * normal.x + normal.y * normal.y + normal.z * normal.z));
+        var scalarProduct = Vector.Dot(normal, ray.Direction);
 
-        var normalRayDirection = Vector.Dot(normal, ray.Direction);
-        if (Math.Abs(normalRayDirection) < eps)
+        if (scalarProduct < float.Epsilon)
         {
             return null;
         }
 
         var d = -Vector.Dot(normal, corners[0]);
-        t = -(Vector.Dot(normal, ray.StartPosition) + d)/normalRayDirection;
+        t = -(Vector.Dot(normal, ray.StartPosition) + d)/scalarProduct;
         if (t < 0)
         {
             return null;
@@ -59,13 +57,6 @@ public class Triangle : Drawable
         {
             return null;
         }
-        return new HitInfo(P,findNormal(),this);
-    }
-
-    private Vector findNormal()
-    {
-        var A = corners[1] - corners[0];
-        var B = corners[2] - corners[0];
-        return Vector.Cross(A ,B);
+        return new HitInfo(P, normal, this);
     }
 }

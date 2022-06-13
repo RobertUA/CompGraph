@@ -21,14 +21,12 @@ class Camera
     }
     public void Move(Vector moveDirection)
     {
-        Position += moveDirection;
+        Position += moveDirection.x * Right 
+            + moveDirection.y * Vector.up
+            + moveDirection.z * Direction;
     }
     public void RotateY(float angle)
     {
         Direction = Direction.Rotate(angle, Vector.up);
-    }
-    public void RotateX(float angle)
-    {
-        Direction = Direction.Rotate(angle, Vector.right);
     }
 }

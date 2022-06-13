@@ -16,8 +16,4 @@ class LightSource
     {
         Direction = Direction.Rotate(angle, Vector.up);
     }
-    public void RotateX(float angle)
-    {
-        Direction = Direction.Rotate(angle, Vector.right);
-    }
 }

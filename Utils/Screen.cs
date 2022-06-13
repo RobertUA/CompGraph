@@ -22,6 +22,7 @@ class Screen
     }
     public void Update()
     {
+        Console.WriteLine("Cam: " + Camera.Position + "[" + Camera.Direction + "] LightDir: " + Scene.Instance.LightSource.Direction);
         for (int x = 0; x < Width+2; x++) Console.Write("=");
         Console.WriteLine();
         for (int y = 0; y < Height; y++)
