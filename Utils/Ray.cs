@@ -6,6 +6,6 @@ public class Ray
     public Ray(Vector startPosition, Vector direction)
     {
         StartPosition = startPosition;
-        Direction = direction;
+        Direction = direction.GetNormalized();
     }
 }

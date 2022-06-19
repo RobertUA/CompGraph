@@ -27,12 +27,12 @@ public class SphereIntersectTest : BaseIntersectTest
         testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.one));
         testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),new Vector(1,0,1)));
         testRaysWithIntersect.Add(new Ray(new Vector(-1,-1,-1),new Vector(0,1,1)));
-        
+
         // On the sphere
         testRaysWithIntersect.Add(new Ray(Vector.right, Vector.one));
-        testRaysWithIntersect.Add(new Ray(Vector.up, new Vector(1,0,1)));
-        testRaysWithIntersect.Add(new Ray(Vector.forward, new Vector(0,1,1)));
-        
+        testRaysWithIntersect.Add(new Ray(Vector.up, new Vector(1, 0, 1)));
+        testRaysWithIntersect.Add(new Ray(Vector.forward, new Vector(0, 1, 1)));
+
         // From Sphere centre
         testRaysWithIntersect.Add(new Ray(Vector.zero, Vector.right));
 
@@ -45,7 +45,7 @@ public class SphereIntersectTest : BaseIntersectTest
         testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.right));
         testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.up));
         testRaysWithoutIntersect.Add(new Ray(new Vector(-1,-1,-1),Vector.forward));
-        
+
         return testRaysWithoutIntersect;
     }
 }

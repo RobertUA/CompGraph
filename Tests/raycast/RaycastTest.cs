@@ -8,13 +8,13 @@ public class RaycastTest
     {
         var drawables = new List<Drawable>();
         var triangle1 = new Triangle(
-            new Vector(0, -2, 1),
+            new Vector(-2, 2, 1),
             new Vector(2, 2, 1),
-            new Vector(-2, 2, 1));
+            new Vector(0, -2, 1));
         var triangle2 = new Triangle(
-            new Vector(0, -2, 2),
+            new Vector(-2, 2, 2),
             new Vector(2, 2, 2),
-            new Vector(-2, 2, 2));
+            new Vector(0, -2, 2));
         
         drawables.Add(triangle1);
         drawables.Add(triangle2);

@@ -3,9 +3,10 @@ using System;
 
 class Pixel
 {
+    public static float maxColorValue = 255;
     public int X, Y;
     public Screen Screen;
-    public string Value = " ";
+    public Vector Color = Vector.one;
     public Pixel(Screen screen, int x, int y)
     {
         Screen = screen;
@@ -14,16 +15,19 @@ class Pixel
     }
     public void SetValue(HitInfo hit)
     {
-        if (hit == null) Value = " ";
-        else if (hit.Normal == null) Value = "#";
+        if (hit == null) Color = Vector.zero;
+        else if (hit.Normal == null) Color = Vector.zero;
         else
         {
-            float scalarProduct = Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
-            if (scalarProduct < 0) Value = " ";
-            else if (scalarProduct < 0.2f) Value = ".";
-            else if (scalarProduct < 0.5f) Value = "*";
-            else if (scalarProduct < 0.8f) Value = "O";
-            else Value = "#";
+            float scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
+            //
+            if (scalarProduct < 0)
+                Color = Vector.zero;
+            else if (scalarProduct <= 1)
+                Color = maxColorValue * Vector.one * scalarProduct;
+            else
+                Color = maxColorValue * Vector.one;
+            Color = maxColorValue * Vector.one;
         }
     }
     public void Update()

@@ -23,7 +23,7 @@ class Sphere : Drawable
             return null;
         }
         Vector position = ray.StartPosition + ray.Direction * t;
-        return new HitInfo(position, (position - Center).GetNormalized(), this);
+        return new HitInfo(position, (position - Center), this);
     }
 
     private float solveDiscriminant(float a, float b, float c)
@@ -43,7 +43,9 @@ class Sphere : Drawable
             float q = (float)((b > 0) ? -0.5 * (b + Math.Sqrt(discr)) : -0.5 * (b - Math.Sqrt(discr)));
             x0 = q / a;
             x1 = c / q;
-            return Math.Max(x0, x1);
+            var min = Math.Min(x0, x1);
+            if (min < 0) return Math.Max(x0, x1);
+            else return min;
         }
     }
 }
