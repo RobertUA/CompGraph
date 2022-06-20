@@ -3,13 +3,21 @@
 public class Triangle : Drawable
 {
     public Vector[] corners = new Vector[3];
+    public Vector Normal;
 
-    public Triangle(Vector firstCorner, Vector secondCorner, Vector thirdCorner)
+    public Triangle(Vector firstCorner, Vector secondCorner, Vector thirdCorner, Vector normal = null)
     {
         //Console.WriteLine(firstCorner + secondCorner + thirdCorner);
         corners[0] = firstCorner.Value;
         corners[1] = secondCorner.Value;
         corners[2] = thirdCorner.Value;
+        if (normal != null) Normal = normal;
+        else
+        {
+            var firstV0 = corners[1] - corners[0];
+            var secondV0 = corners[2] - corners[0];
+            Normal = Vector.Cross(firstV0, secondV0);
+        }
     }
     public override HitInfo GetIntersection(Ray ray) // нормальные тесты, но корова плевет
     {
@@ -17,7 +25,8 @@ public class Triangle : Drawable
         double t;
         var firstV0 = corners[1] - corners[0];
         var secondV0 = corners[2] - corners[0];
-        var normal = Vector.Cross(firstV0, secondV0);
+        //var normal = Vector.Cross(firstV0, secondV0);
+        var normal = Normal;
         double scalarProduct = Vector.Dot(normal, ray.Direction);
 
         if (-scalarProduct < 0.000001)

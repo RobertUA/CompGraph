@@ -52,8 +52,9 @@ class ObjReader
                     normals[i] = vn[int.Parse(subParts[2])-1].Value;
                     //Console.WriteLine(vertexes[i].x + " " + vertexes[i].y + " " + vertexes[i].z);
                 }
+                Vector normal = (normals[0].GetNormalized() + normals[1].GetNormalized() + normals[2].GetNormalized()).GetNormalized();
                 //Console.ReadKey();
-                triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2]));
+                triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2], normal));
             }
             
         }

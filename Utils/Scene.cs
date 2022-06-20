@@ -24,8 +24,9 @@ class Scene
         //---- Setup
         LightSource = new LightSource(new Vector(0, 0, 1).GetNormalized());
         //Screen = new Screen(1920, 1080);
-        Screen = new Screen(100, 40);
-        Camera = new Camera(new Vector(6.535533f, 1, -0.2928932f), new Vector(-0.7071068f, 0, 0.7071068f), 45, 30, Screen);
+        Screen = new Screen(400, 250);
+        //Screen = new Screen(100, 40);
+        Camera = new Camera(new Vector(0, 0, -1), new Vector(0, 0, 1), 45, 30, Screen);
         //---- Drawables
         /*Drawables.Add(new Sphere(new Vector(-1, 0.5f, 0.5f), 1.25f));
         Drawables.Add(new Sphere(new Vector(1, 0.5f, 0.5f), 1.25f));
@@ -35,19 +36,19 @@ class Scene
             new Vector(2, -0.1f, 0),
             new Vector(0, -2, 0)));*/
 
-        Drawables.Add(new Triangle(
+        /*Drawables.Add(new Triangle(
             new Vector(-20, -10, 8),
             new Vector(0, 10, 8),
-            new Vector(20, -10, 8)));
-        Drawables.Add(new Triangle(
+            new Vector(20, -10, 8)));*/
+        /*Drawables.Add(new Triangle(
             new Vector(2, -2, 5),
             new Vector(0, 2, 5),
-            new Vector(-2, -2, 5)));
+            new Vector(-2, -2, 5)));*/
         //Drawables.Add(new Sphere(new Vector(-1, 0, 4), 2f));
         //Drawables.Add(new Sphere(new Vector(1, 0, 4), 2f));
         //Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\test.obj"));
         //Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\box.obj"));
-        //Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\cow.obj"));
+        Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\cow.obj"));
         //Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\dragon.obj"));
         //Drawables.AddRange(ObjReader.ReadFromFile("F:\\CompGraph\\CompGraph\\car.obj"));
 
