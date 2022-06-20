@@ -6,7 +6,8 @@ class Pixel
     public static float maxColorValue = 255;
     public int X, Y;
     public Screen Screen;
-    public Vector Color = Vector.one;
+    public Vector Color = Vector.zero;
+    public char TextValue = ' ';
     public Pixel(Screen screen, int x, int y)
     {
         Screen = screen;
@@ -15,19 +16,32 @@ class Pixel
     }
     public void SetValue(HitInfo hit)
     {
-        if (hit == null) Color = Vector.zero;
-        else if (hit.Normal == null) Color = Vector.zero;
+        if (hit == null)
+        {
+            TextValue = ' ';
+            Color = Vector.zero;
+        }
+        else if (hit.Normal == null)
+        {
+            TextValue = ' ';
+            Color = Vector.zero;
+        }
         else
         {
             float scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
+            //scalarProduct = 1;
+            if (scalarProduct < 0) TextValue = ' ';
+            else if (scalarProduct < 0.2f) TextValue = '.';
+            else if (scalarProduct < 0.5f) TextValue = '*';
+            else if (scalarProduct < 0.8f) TextValue = 'O';
+            else TextValue = '#';
             //
             if (scalarProduct < 0)
                 Color = Vector.zero;
-            else if (scalarProduct <= 1)
+            else if (scalarProduct < 1)
                 Color = maxColorValue * Vector.one * scalarProduct;
             else
                 Color = maxColorValue * Vector.one;
-            Color = maxColorValue * Vector.one;
         }
     }
     public void Update()

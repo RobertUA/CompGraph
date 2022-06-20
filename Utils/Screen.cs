@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 class Screen
 {
@@ -24,16 +26,33 @@ class Screen
     public void Update()
     {
         Console.WriteLine("Start calculation...");
-        for (int y = 0; y < Height; y++)
+        ///
+        int threadsCount = 16;
+        int pixelsPerThread = (Height + threadsCount) / threadsCount;
+        List<Thread> threads = new List<Thread>();
+        for (int i = 0; i < threadsCount; i++)
         {
-            for (int x = 0; x < Width; x++)
+            int threadIndex = i * pixelsPerThread;
+            threads.Add(new Thread(new ThreadStart(() =>
             {
-                Pixels[x][y].Update();
-            }
+                for (int y = threadIndex; y < threadIndex + pixelsPerThread && y < Height; y++)
+                {
+                    for (int x = 0; x < Width; x++)
+                    {
+                        Pixels[x][y].Update();
+                    }
+                }
+            })));
+            threads[i].Start();
         }
+        for (int i = 0; i < threads.Count; i++)
+        {
+            threads[i].Join();
+        }
+        //
         Console.WriteLine("Pixels Calculated. Start output...");
         OutPPM();
-        OutConsole();
+        if(Width <= 120 && Height <= 50) OutConsole();
         Console.WriteLine("Output end");
     }
     public void OutPPM()
@@ -63,7 +82,7 @@ class Screen
             Console.Write("|");
             for (int x = 0; x < Width; x++)
             {
-                Console.Write(Pixels[x][y].Color == Vector.zero ? " " : "#");
+                Console.Write(Pixels[x][y].TextValue);
             }
             Console.Write("|");
             Console.WriteLine();

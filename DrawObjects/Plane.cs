@@ -16,10 +16,10 @@ public class Plane : Drawable
         var denom = Vector.Dot(Normal, ray.Direction);
         if (Math.Abs(denom) > 0.0001f)
         {
-            var t = Vector.Dot(Position - ray.StartPosition, Normal) / denom;
+            var t = Vector.Dot(Position - ray.Origin, Normal) / denom;
             if (t >= 0)
             {
-                return new HitInfo(ray.StartPosition + ray.Direction * t, null,this);
+                return new HitInfo(ray.Origin + ray.Direction * t, null,this);
             }
         }
 

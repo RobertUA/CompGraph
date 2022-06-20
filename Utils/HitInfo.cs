@@ -6,8 +6,8 @@ public class HitInfo
     public Vector Normal;
     public HitInfo(Vector hitPosition, Vector hitNormal, Drawable drawable)
     {
-        Position = hitPosition;
-        Normal = hitNormal;
+        Position = hitPosition.Value;
+        Normal = hitNormal.Value;
         Drawable = drawable;
     }
 }

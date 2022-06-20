@@ -22,7 +22,7 @@ public class Tools
         if (hits == null) return null;
         for (int i = 0; i < hits.Count; i++)
         {
-            float dist = Vector.Distance(hits[i].Position, ray.StartPosition);
+            float dist = Vector.Distance(hits[i].Position, ray.Origin);
             if (minDist > dist)
             {
                 minDist = dist;

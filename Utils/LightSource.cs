@@ -10,7 +10,7 @@ class LightSource
         {
             throw new System.Exception("Вектор света не может быть нулевым");
         }
-        Direction = direction;
+        Direction = direction.GetNormalized();
     }
     public void RotateY(float angle)
     {

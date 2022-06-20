@@ -78,9 +78,13 @@ public class Vector
        => new Vector(a.x / f, a.y / f, a.z / f);
     /*public static float operator *(Vector a, Vector b)
        => GetScalarProduct(a, b);*/
+    /*public override string ToString()
+    {
+        return "(" + Math.Round(x, 2) + "|" + (float)Math.Round(y, 2) + "|" + (float)Math.Round(z, 2) + ")";
+    }*/
     public override string ToString()
     {
-        return "(" + Math.Round(x,2) + "|" + (float)Math.Round(y, 2) + "|" + (float)Math.Round(z, 2) + ")";
+        return "(" + x + "|" + y + "|" + z + ")";
     }
     //стандартные наборы
     public static Vector zero = new Vector(0, 0, 0);
@@ -99,6 +103,12 @@ public class Vector
         Vector addVector = (endVector-startVector)*t;
         return startVector+addVector;
     }
-
+    public Vector Value
+    {
+        get
+        {
+            return new Vector(x, y, z);
+        }
+    }
 
 }

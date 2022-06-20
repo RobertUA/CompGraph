@@ -48,9 +48,9 @@ class ObjReader
                 for (int i = 0; i < 3; i++)
                 {
                     string[] subParts = parts[i+1].Split('/');
-                    vertexes[i] = v[int.Parse(subParts[0])-1];
-                    normals[i] = vn[int.Parse(subParts[2])-1];
-                    //Console.WriteLine(vertexes[i]);
+                    vertexes[i] = v[int.Parse(subParts[0])-1].Value;
+                    normals[i] = vn[int.Parse(subParts[2])-1].Value;
+                    //Console.WriteLine(vertexes[i].x + " " + vertexes[i].y + " " + vertexes[i].z);
                 }
                 //Console.ReadKey();
                 triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2]));

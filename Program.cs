@@ -51,25 +51,25 @@ class Program
                     }
                 case ConsoleKey.E:
                     {
-                        Scene.Instance.Camera.RotateY(15);
+                        Scene.Instance.Camera.RotateY(45);
                         Update();
                         break;
                     }
                 case ConsoleKey.Q:
                     {
-                        Scene.Instance.Camera.RotateY(-15);
+                        Scene.Instance.Camera.RotateY(-45);
                         Update();
                         break;
                     }
                 case ConsoleKey.RightArrow:
                     {
-                        Scene.Instance.LightSource.RotateY(15);
+                        Scene.Instance.LightSource.RotateY(45);
                         Update();
                         break;
                     }
                 case ConsoleKey.LeftArrow:
                     {
-                        Scene.Instance.LightSource.RotateY(-15);
+                        Scene.Instance.LightSource.RotateY(-45);
                         Update();
                         break;
                     }

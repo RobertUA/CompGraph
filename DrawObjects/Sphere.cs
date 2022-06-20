@@ -13,7 +13,7 @@ class Sphere : Drawable
 
     public override HitInfo GetIntersection(Ray ray)
     {
-        var L = ray.StartPosition - Center;
+        var L = ray.Origin - Center;
         var a = Vector.Dot(ray.Direction, ray.Direction);
         var b = 2 * Vector.Dot(ray.Direction, L);
         var c = Vector.Dot(L, L) - Diameter;
@@ -22,7 +22,7 @@ class Sphere : Drawable
         {
             return null;
         }
-        Vector position = ray.StartPosition + ray.Direction * t;
+        Vector position = ray.Origin + ray.Direction * t;
         return new HitInfo(position, (position - Center), this);
     }
 
