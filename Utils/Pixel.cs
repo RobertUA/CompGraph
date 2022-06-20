@@ -14,7 +14,7 @@ class Pixel
         X = x;
         Y = y;
     }
-    public void SetValue(HitInfo hit)
+    public void SetValue(HitInfo hit, float power = 1)
     {
         if (hit == null)
         {
@@ -30,11 +30,7 @@ class Pixel
         {
             float scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
             //scalarProduct = 1;
-            if (scalarProduct < 0) TextValue = ' ';
-            else if (scalarProduct < 0.2f) TextValue = '.';
-            else if (scalarProduct < 0.5f) TextValue = '*';
-            else if (scalarProduct < 0.8f) TextValue = 'O';
-            else TextValue = '#';
+            
             //
             if (scalarProduct < 0)
                 Color = Vector.zero;
@@ -42,6 +38,12 @@ class Pixel
                 Color = maxColorValue * Vector.one * scalarProduct;
             else
                 Color = maxColorValue * Vector.one;
+            Color *= power;
+            if (Color.x < 0) TextValue = ' ';
+            else if (Color.x < 0.2f * maxColorValue) TextValue = '.';
+            else if (Color.x < 0.5f * maxColorValue) TextValue = '*';
+            else if (Color.x < 0.8f * maxColorValue) TextValue = 'O';
+            else TextValue = '#';
         }
     }
     public void Update()
@@ -50,6 +52,16 @@ class Pixel
         float angleVertical = -((Y - Screen.Height / 2f) / (Screen.Height / 2f)) * Screen.Camera.VerticalFOV;
         Vector direction = Screen.Camera.Direction.Rotate(angleHorizontal, Vector.up).Rotate(angleVertical, Screen.Camera.Right);
         HitInfo hit = Tools.Raycast(new Ray(Screen.Camera.Position, direction));
-        SetValue(hit);
+        float power = 1;
+        if (hit != null)
+        {
+            Ray secondRay = new Ray(hit.Position, -Scene.Instance.LightSource.Direction);
+            HitInfo newHit = Tools.Raycast(secondRay);
+            if (newHit != null && newHit.Drawable != hit.Drawable)
+            {
+                power = 0.2f;
+            }
+        }
+        SetValue(hit, power);
     }
 }

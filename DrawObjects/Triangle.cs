@@ -13,7 +13,7 @@ public class Triangle : Drawable
     }
     public override HitInfo GetIntersection(Ray ray) // нормальные тесты, но корова плевет
     {
-        const bool twoSided = false;
+        const bool twoSided = true;
         double t;
         var firstV0 = corners[1] - corners[0];
         var secondV0 = corners[2] - corners[0];
