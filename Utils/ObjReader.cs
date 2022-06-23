@@ -61,7 +61,17 @@ class ObjReader
         string[] pathParts = path.Split('\\');
         
         Console.WriteLine(pathParts[pathParts.Length-1] + " | MinAxis: " + minAxis + " | MaxAxis: " + maxAxis);
-
+        StreamWriter sw = new StreamWriter(Program.GetAbsolutePath("Output\\triangles.txt"));
+        sw.WriteLine("==== FILE = " + pathParts[pathParts.Length - 1]);
+        foreach (Drawable item in triangles)
+        {
+            if (item.GetType() == typeof(Triangle))
+            {
+                sw.WriteLine((item as Triangle).corners[0] + " " + (item as Triangle).corners[1] + " " + (item as Triangle).corners[2]);
+            }
+        }
+        sw.WriteLine("====");
+        sw.Close();
         return triangles;
     }
     static private float GetFloatFromStr(string str)

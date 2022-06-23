@@ -56,15 +56,7 @@ class Scene
         //Drawables.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\dragon.obj")));
         //Drawables.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\car.obj")));
 
-        StreamWriter sw = new StreamWriter(Program.GetAbsolutePath("Output\\triangles.txt"));
-        foreach (Drawable item in Drawables)
-        {
-            if (item.GetType() == typeof(Triangle))
-            {
-                sw.WriteLine((item as Triangle).corners[0] + " " + (item as Triangle).corners[1] + " " + (item as Triangle).corners[2]);
-            }
-        }
-        sw.Close();
+        
         //---- Start
         Screen.Update();
         Console.Beep();
