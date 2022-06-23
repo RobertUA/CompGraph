@@ -22,9 +22,9 @@ class ObjReader
             if(parts[0] == "v")
             {
                 Vector vertex = new Vector(
-                    float.Parse(parts[1].Replace('.',',')),
-                    float.Parse(parts[2].Replace('.', ',')),
-                    float.Parse(parts[3].Replace('.', ',')));
+                    GetFloatFromStr(parts[1]),
+                    GetFloatFromStr(parts[2]),
+                    GetFloatFromStr(parts[3]));
                 if (vertex.x > maxAxis.x) maxAxis.x = vertex.x;
                 if (vertex.y > maxAxis.y) maxAxis.y = vertex.y;
                 if (vertex.z > maxAxis.z) maxAxis.z = vertex.z;
@@ -36,9 +36,9 @@ class ObjReader
             else if (parts[0] == "vn")
             {
                 Vector normal = new Vector(
-                    float.Parse(parts[1].Replace('.', ',')),
-                    float.Parse(parts[2].Replace('.', ',')),
-                    float.Parse(parts[3].Replace('.', ',')));
+                    GetFloatFromStr(parts[1]),
+                    GetFloatFromStr(parts[2]),
+                    GetFloatFromStr(parts[3]));
                 vn.Add(normal);
             }
             else if (parts[0] == "f")
@@ -52,7 +52,7 @@ class ObjReader
                     normals[i] = vn[int.Parse(subParts[2])-1].Value;
                     //Console.WriteLine(vertexes[i].x + " " + vertexes[i].y + " " + vertexes[i].z);
                 }
-                Vector normal = (normals[0].GetNormalized() + normals[1].GetNormalized() + normals[2].GetNormalized()).GetNormalized();
+                Vector normal = (normals[0] + normals[1] + normals[2]);
                 //Console.ReadKey();
                 triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2], normal));
             }
@@ -64,4 +64,19 @@ class ObjReader
 
         return triangles;
     }
+    static private float GetFloatFromStr(string str)
+    {
+        int len = 100;
+        if (len > str.Length) len = str.Length;
+        string newStr = str.Substring(0, len);
+        newStr = newStr.Replace('.', ',');
+        float result = float.Parse(newStr);
+        //result = (float)Math.Round(result, 4);
+        /*if (str.Contains('e'))
+        {
+            Console.WriteLine(str + " | " + newStr + " | " + result);
+        }*/
+        return result;
+    }
 }
+

@@ -20,12 +20,12 @@ class Pixel
         if (hit == null)
         {
             TextValue = ' ';
-            Color = Vector.zero;
+            Color = new Vector(255, 0, 255);
         }
         else if (hit.Normal == null)
         {
             TextValue = ' ';
-            Color = Vector.zero;
+            Color = new Vector(255, 0, 255);
         }
         else
         {
@@ -34,16 +34,16 @@ class Pixel
             
             //
             if (scalarProduct < 0)
-                Color = new Vector(255, 0, 255);
+                Color = new Vector(0, 0, 0);
             else if (scalarProduct < 1)
                 Color = maxColorValue * Vector.one * scalarProduct;
             else
                 Color = maxColorValue * Vector.one;
             Color *= power;
-            if (Color.x < 0) TextValue = ' ';
-            else if (Color.x < 0.2f * maxColorValue) TextValue = '.';
-            else if (Color.x < 0.5f * maxColorValue) TextValue = '*';
-            else if (Color.x < 0.8f * maxColorValue) TextValue = 'O';
+            if (scalarProduct < 0) TextValue = '-';
+            else if (scalarProduct < 0.2f) TextValue = '.';
+            else if (scalarProduct < 0.5f) TextValue = '*';
+            else if (scalarProduct < 0.8f) TextValue = 'O';
             else TextValue = '#';
         }
     }
@@ -54,7 +54,7 @@ class Pixel
         Vector direction = Screen.Camera.Direction.Rotate(angleHorizontal, Vector.up).Rotate(angleVertical, Screen.Camera.Right);
         HitInfo hit = Tools.Raycast(new Ray(Screen.Camera.Position, direction));
         float power = 1;
-        if (hit != null)
+        if (hit != null && true)
         {
             Ray secondRay = new Ray(hit.Position, -Scene.Instance.LightSource.Direction);
             List<HitInfo> lightHits = Tools.RaycastAll(secondRay);

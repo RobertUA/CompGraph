@@ -52,7 +52,7 @@ class Screen
         //
         Console.WriteLine("Pixels Calculated. Start output...");
         OutPPM();
-        if(Width <= 120 && Height <= 50) OutConsole();
+        if(Width <= 200 && Height <= 50) OutConsole();
         Console.WriteLine("Output end");
     }
     public void OutPPM()

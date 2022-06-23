@@ -76,7 +76,7 @@ class Program
             }
         }
     }
-    public static String GetAbsolutePath(string path)
+    public static string GetAbsolutePath(string path)
     {
         return Environment.CurrentDirectory.Replace("\\bin\\Debug","\\")+path;
     }
