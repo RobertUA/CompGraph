@@ -75,6 +75,7 @@
     <Compile Include="Tests\intersection\SphereIntersectTest.cs" />
     <Compile Include="Tests\intersection\TriangleIntersectTest.cs" />
     <Compile Include="Tests\raycast\RaycastTest.cs" />
+    <Compile Include="Tests\vectors\VectorTest.cs" />
     <Compile Include="Utils\Camera.cs" />
     <Compile Include="Utils\HitInfo.cs" />
     <Compile Include="Utils\LightSource.cs" />
