@@ -62,7 +62,7 @@ public class Vector
     }
     public static bool operator !=(Vector a, Vector b)     // a!=b
     {
-        return !a.Equals(b);
+        return !(a==b);
     }
     public static Vector operator -(Vector a)               // -a
         => new Vector(-a.x, -a.y, -a.z);

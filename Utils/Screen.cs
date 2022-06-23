@@ -52,13 +52,13 @@ class Screen
         //
         Console.WriteLine("Pixels Calculated. Start output...");
         OutPPM();
-        //if(Width <= 120 && Height <= 50) OutConsole();
+        if(Width <= 120 && Height <= 50) OutConsole();
         Console.WriteLine("Output end");
     }
     public void OutPPM()
     {
-        StreamWriter sw = new StreamWriter(Program.GetAbsolutePath("Output/picture.ppm"));
-        Console.WriteLine(Program.GetAbsolutePath("Output/picture.ppm"));
+        StreamWriter sw = new StreamWriter(Program.GetAbsolutePath("Output\\picture.ppm"));
+        Console.WriteLine(Program.GetAbsolutePath("Output\\picture.ppm"));
         sw.WriteLine("P3");
         sw.WriteLine(Width + " " + Height);
         sw.WriteLine(Pixel.maxColorValue);

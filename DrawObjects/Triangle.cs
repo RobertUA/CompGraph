@@ -76,41 +76,38 @@ public class Triangle : Drawable
     }
     /*public override HitInfo GetIntersection(Ray ray) //очертание коровы, но тест треугольника - не такой
     {
-        const double Epsilon = 0.000001d;
-        var edge1 = corners[1] - corners[0];
-        var edge2 = corners[2] - corners[0];
+        var e1 = corners[1] - corners[0];
+        var e2 = corners[2] - corners[0];
+        var p = Vector.Cross(ray.Direction, e2);
+        var det = Vector.Dot(e1, p);
 
-        var pvec = Vector.Cross(ray.Direction, edge2);
-
-        var det = Vector.Dot(edge1, pvec);
-
-        if (det > -Epsilon && det < Epsilon)
+        if (Math.Abs(det) < float.Epsilon)
         {
             return null;
         }
 
-        var invDet = 1d / det;
-
-        var tvec = ray.Origin - corners[0];
-
-        var u = Vector.Dot(tvec, pvec) * invDet;
-
-        if (u < 0 || u > 1)
+        var inv_det = 1.0 / det;
+        var tt = ray.Origin - corners[0];
+        var u = Vector.Dot(tt, p) * inv_det;
+        if (u < 0.0 || u > 1.0) 
         {
             return null;
         }
 
-        var qvec = Vector.Cross(tvec, edge1);
-
-        var v = Vector.Dot(ray.Direction, qvec) * invDet;
-
-        if (v < 0 || u + v > 1)
+        var q = Vector.Cross(tt, e1);
+        var v = Vector.Dot(ray.Direction, q) * inv_det;
+        if (v < 0.0 || u + v > 1.0) 
         {
             return null;
         }
 
-        var t = Vector.Dot(edge2, qvec) * invDet;
-        
-        return new HitInfo(ray.Direction * (float)t + ray.Origin, pvec.GetNormalized(), this);
+        var t = Vector.Dot(e2, q) * inv_det;
+        t = Math.Abs(t);
+        if (t > float.Epsilon) 
+        {
+            return new HitInfo(ray.Origin + ray.Direction * (float)t, p.GetNormalized(), this);
+        }
+
+        return null;
     }*/
 }

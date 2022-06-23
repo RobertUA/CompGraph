@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 class Pixel
 {
@@ -33,7 +34,7 @@ class Pixel
             
             //
             if (scalarProduct < 0)
-                Color = Vector.zero;
+                Color = new Vector(255, 0, 255);
             else if (scalarProduct < 1)
                 Color = maxColorValue * Vector.one * scalarProduct;
             else
@@ -56,10 +57,16 @@ class Pixel
         if (hit != null)
         {
             Ray secondRay = new Ray(hit.Position, -Scene.Instance.LightSource.Direction);
-            HitInfo newHit = Tools.Raycast(secondRay);
-            if (newHit != null && newHit.Drawable != hit.Drawable)
+            List<HitInfo> lightHits = Tools.RaycastAll(secondRay);
+            if (lightHits != null)
             {
-                power = 0.2f;
+                foreach (var lightHit in lightHits)
+                {
+                    if (lightHit.Drawable != hit.Drawable)
+                    {
+                        power *= 0.5f;
+                    }
+                }
             }
         }
         SetValue(hit, power);
