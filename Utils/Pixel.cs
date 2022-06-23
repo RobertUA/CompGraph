@@ -30,7 +30,7 @@ class Pixel
         else
         {
             float scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
-            //scalarProduct = 1;
+            // scalarProduct = 1;
             
             //
             if (scalarProduct < 0)

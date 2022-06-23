@@ -25,8 +25,8 @@ class Scene
         //---- Setup
         LightSource = new LightSource(new Vector(0, 0, 1).GetNormalized());
         //Screen = new Screen(1920, 1080);
-        Screen = new Screen(400, 250);
-        //Screen = new Screen(200, 40);
+        // Screen = new Screen(400, 250);
+        Screen = new Screen(200, 40);
         Camera = new Camera(new Vector(0, 0, -1), new Vector(0, 0, 1), 40, 25, Screen);
         //Camera = new Camera(new Vector(6, 0, 0), new Vector(-1, 0, 1), 40, 25, Screen);
         //---- Drawables

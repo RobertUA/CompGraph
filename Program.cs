@@ -14,72 +14,80 @@ class Program
             switch (keyInfo.Key)
             {
                 case ConsoleKey.W:
-                    {
-                        Scene.Instance.Camera.Move(Vector.forward);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(Vector.forward);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.S:
-                    {
-                        Scene.Instance.Camera.Move(-Vector.forward);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(-Vector.forward);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.D:
-                    {
-                        Scene.Instance.Camera.Move(Vector.right);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(Vector.right);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.A:
-                    {
-                        Scene.Instance.Camera.Move(-Vector.right);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(-Vector.right);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.Spacebar:
-                    {
-                        Scene.Instance.Camera.Move(Vector.up);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(Vector.up);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.C:
-                    {
-                        Scene.Instance.Camera.Move(-Vector.up);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.Move(-Vector.up);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.E:
-                    {
-                        Scene.Instance.Camera.RotateY(45);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.RotateY(45);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.Q:
-                    {
-                        Scene.Instance.Camera.RotateY(-45);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.Camera.RotateY(-45);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.RightArrow:
-                    {
-                        Scene.Instance.LightSource.RotateY(45);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.LightSource.RotateY(45);
+                    Update();
+                    break;
+                }
                 case ConsoleKey.LeftArrow:
-                    {
-                        Scene.Instance.LightSource.RotateY(-45);
-                        Update();
-                        break;
-                    }
+                {
+                    Scene.Instance.LightSource.RotateY(-45);
+                    Update();
+                    break;
+                }
             }
         }
     }
+
     public static string GetAbsolutePath(string path)
     {
-        return Environment.CurrentDirectory.Replace("\\bin\\Debug","\\")+path;
+        var osVersionPlatform = Environment.OSVersion.Platform;
+        if (osVersionPlatform.ToString().Equals("Unix"))
+        {
+            return Environment.CurrentDirectory.Replace("/bin/Debug", "/") + path.Replace("\\", "/");
+        }
+
+        return Environment.CurrentDirectory.Replace("\\bin\\Debug", "\\") + path;
     }
+
     public static void Update()
     {
         Console.Clear();
