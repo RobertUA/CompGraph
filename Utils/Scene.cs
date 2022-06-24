@@ -29,7 +29,7 @@ class Scene
         //Screen = new Screen(1280, 720);
         //Screen = new Screen(400, 300);
         Screen = new Screen(200, 40);
-        Camera = new Camera(new Vector(0, 0, -1), new Vector(0, 0, 1), 40, 25, Screen);
+        Camera = new Camera(new Vector(0, 0, -10), new Vector(0, 0, 1), 40, 25, Screen);
         //Camera = new Camera(new Vector(0, 0, 5), new Vector(0, 0, -1), 40, 25, Screen);
         //Camera = new Camera(new Vector(6, 0, 0), new Vector(-1, 0, 1), 40, 25, Screen);
         //---- Drawables
@@ -55,8 +55,8 @@ class Scene
         //
         //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\test.obj")));
         //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\box.obj")));
-        booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\cow.obj")));
-        //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\dragon.obj")));
+        //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\cow.obj")));
+        booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\dragon.obj")));
         //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\car.obj")));
 
         Console.WriteLine("Nods count: " + booster.Nodes.Count);

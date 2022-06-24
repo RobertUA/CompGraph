@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 struct Node 
 {
-    public const double Dist = 0.7;
+    public const double Dist = 0.5;
     public Vector Position;
     public List<Triangle> Drawables;
     public Vector[] bounds;
@@ -82,8 +82,7 @@ class Booster
             {
                 if(node.IsIn(corner))
                 {
-                    if(!node.Drawables.Contains(triangle)) 
-                        node.Drawables.Add(triangle);
+                    node.Drawables.Add(triangle);
                     isAdded = true;
                 }
             }
