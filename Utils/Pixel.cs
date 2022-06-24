@@ -54,7 +54,7 @@ class Pixel
         Vector direction = Screen.Camera.Direction.Rotate(angleHorizontal, Vector.up).Rotate(angleVertical, Screen.Camera.Right);
         HitInfo hit = Tools.Raycast(new Ray(Screen.Camera.Position, direction));
         double power = 1;
-        if (hit != null && false)
+        if (hit != null)
         {
             Ray secondRay = new Ray(hit.Position, -Scene.Instance.LightSource.Direction);
             List<HitInfo> lightHits = Tools.RaycastAll(secondRay);
