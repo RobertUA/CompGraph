@@ -12,7 +12,7 @@ class LightSource
         }
         Direction = direction.GetNormalized();
     }
-    public void RotateY(float angle)
+    public void RotateY(double angle)
     {
         Direction = Direction.Rotate(angle, Vector.up);
     }

@@ -10,8 +10,8 @@ class ObjReader
 {
     public static List<Triangle> ReadFromFile(string path)
     {
-        Vector minAxis = Vector.one * +float.MaxValue;
-        Vector maxAxis = Vector.one * -float.MaxValue;
+        Vector minAxis = Vector.one * +double.MaxValue;
+        Vector maxAxis = Vector.one * -double.MaxValue;
         List<Vector> v = new List<Vector>();
         List<Vector> vn = new List<Vector>();
         List<Triangle> triangles = new List<Triangle>();
@@ -22,9 +22,9 @@ class ObjReader
             if(parts[0] == "v")
             {
                 Vector vertex = new Vector(
-                    GetFloatFromStr(parts[1]),
-                    GetFloatFromStr(parts[2]),
-                    GetFloatFromStr(parts[3]));
+                    GetDoubleFromStr(parts[1]),
+                    GetDoubleFromStr(parts[2]),
+                    GetDoubleFromStr(parts[3]));
                 if (vertex.x > maxAxis.x) maxAxis.x = vertex.x;
                 if (vertex.y > maxAxis.y) maxAxis.y = vertex.y;
                 if (vertex.z > maxAxis.z) maxAxis.z = vertex.z;
@@ -36,9 +36,9 @@ class ObjReader
             else if (parts[0] == "vn")
             {
                 Vector normal = new Vector(
-                    GetFloatFromStr(parts[1]),
-                    GetFloatFromStr(parts[2]),
-                    GetFloatFromStr(parts[3]));
+                    GetDoubleFromStr(parts[1]),
+                    GetDoubleFromStr(parts[2]),
+                    GetDoubleFromStr(parts[3]));
                 vn.Add(normal);
             }
             else if (parts[0] == "f")
@@ -59,8 +59,8 @@ class ObjReader
             
         }
         string[] pathParts = path.Split('\\');
-        
         Console.WriteLine(pathParts[pathParts.Length-1] + " | MinAxis: " + minAxis + " | MaxAxis: " + maxAxis);
+
         StreamWriter sw = new StreamWriter(Program.GetAbsolutePath("Output\\triangles.txt"));
         sw.WriteLine("==== FILE = " + pathParts[pathParts.Length - 1]);
         foreach (Drawable item in triangles)
@@ -74,14 +74,14 @@ class ObjReader
         sw.Close();
         return triangles;
     }
-    static private float GetFloatFromStr(string str)
+    static private double GetDoubleFromStr(string str)
     {
         int len = 100;
         if (len > str.Length) len = str.Length;
         string newStr = str.Substring(0, len);
         newStr = newStr.Replace('.', ',');
-        float result = float.Parse(newStr);
-        //result = (float)Math.Round(result, 4);
+        double result = double.Parse(newStr);
+        //result = Math.Round(result, 4);
         /*if (str.Contains('e'))
         {
             Console.WriteLine(str + " | " + newStr + " | " + result);

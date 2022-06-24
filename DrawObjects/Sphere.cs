@@ -3,9 +3,9 @@
 class Sphere : Drawable
 {
     public Vector Center;
-    public float Diameter;
+    public double Diameter;
 
-    public Sphere(Vector center, float diameter)
+    public Sphere(Vector center, double diameter)
     {
         Center = center;
         Diameter = diameter;
@@ -26,21 +26,21 @@ class Sphere : Drawable
         return new HitInfo(position, (position - Center), this);
     }
 
-    private float solveDiscriminant(float a, float b, float c)
+    private double solveDiscriminant(double a, double b, double c)
     {
         var discr = b * b - 4 * a * c;
-        float x0, x1;
+        double x0, x1;
         if (discr < 0)
         {
             return -1;
         }
         else if (discr == 0)
         {
-            return (float)-0.5 * b / a;
+            return -0.5 * b / a;
         }
         else
         {
-            float q = (float)((b > 0) ? -0.5 * (b + Math.Sqrt(discr)) : -0.5 * (b - Math.Sqrt(discr)));
+            double q = (b > 0) ? -0.5 * (b + Math.Sqrt(discr)) : -0.5 * (b - Math.Sqrt(discr));
             x0 = q / a;
             x1 = c / q;
             var min = Math.Min(x0, x1);

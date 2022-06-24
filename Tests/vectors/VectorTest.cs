@@ -22,13 +22,13 @@ public class VectorTest
     [Test]
     public void VectorGetMagnitudeShouldReturnVectorMagnitude()
     {
-        Assert.AreEqual(1.73205078f,vector1.GetMagnitude());
-        Assert.AreEqual(3.46410155f,vector2.GetMagnitude());
+        Assert.AreEqual(1.73205078,vector1.GetMagnitude());
+        Assert.AreEqual(3.46410155,vector2.GetMagnitude());
     }
     [Test]
     public void VectorGetNormalizedShouldReturnNormalizedVector()
     {
-        Assert.AreEqual(new Vector(0.5773503f,0.5773503f,0.5773503f), vector1.GetNormalized());
+        Assert.AreEqual(new Vector(0.5773503,0.5773503,0.5773503), vector1.GetNormalized());
         Assert.AreEqual(new Vector(0,0,0),vector2.GetNormalized());
     }
     [Test]
@@ -48,7 +48,7 @@ public class VectorTest
     {
         var div1 = vector1/2;
         var div2 = vector2/2;
-        Assert.AreEqual(new Vector(0.5f,0.5f,0.5f),div1);
+        Assert.AreEqual(new Vector(0.5,0.5,0.5),div1);
         Assert.AreEqual(new Vector(-1,-1,-1),div2);
     }
     [Test]

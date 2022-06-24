@@ -17,12 +17,12 @@ public class Tools
     public static HitInfo Raycast(Ray ray)
     {
         int minIndex = -1;
-        float minDist = float.MaxValue;
+        double minDist = double.MaxValue;
         List<HitInfo> hits = RaycastAll(ray);
         if (hits == null) return null;
         for (int i = 0; i < hits.Count; i++)
         {
-            float dist = Vector.Distance(hits[i].Position, ray.Origin);
+            double dist = Vector.Distance(hits[i].Position, ray.Origin);
             if (minDist > dist)
             {
                 minDist = dist;

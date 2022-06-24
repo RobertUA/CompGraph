@@ -2,23 +2,23 @@
 
 public class Vector
 {
-    public float x, y, z;
-    public Vector(float x, float y, float z = 0)
+    public double x, y, z;
+    public Vector(double x, double y, double z = 0)
     {
         this.x = x;
         this.y = y;
         this.z = z;
     }
     //методы
-    public Vector Rotate(float angle, Vector axis)
+    public Vector Rotate(double angle, Vector axis)
     {
-        angle = angle * (float)Math.PI / 180f; //to radians
-        Vector newVector = this * (float)Math.Cos(angle) + (Cross(axis, this)) * (float)Math.Sin(angle) + axis * (Dot(axis, this) * (1 - (float)Math.Cos(angle)));
+        angle = angle * (double)Math.PI / 180f; //to radians
+        Vector newVector = this * Math.Cos(angle) + (Cross(axis, this)) * Math.Sin(angle) + axis * (Dot(axis, this) * (1 - Math.Cos(angle)));
         return newVector.GetNormalized() * GetMagnitude();
     }
-    public float GetMagnitude()
+    public double GetMagnitude()
     {
-        return (float) Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+        return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
     }
     public Vector GetNormalized()
     {
@@ -33,11 +33,11 @@ public class Vector
             a.x * b.y - a.y * b.x
         );
     }
-    public static float Dot(Vector a, Vector b)
+    public static double Dot(Vector a, Vector b)
     {
         return a.x * b.x + a.y * b.y + a.z * b.z;
     }
-    public float GetProjection(Vector b)
+    public double GetProjection(Vector b)
     {
         return Dot(this, b) / b.GetMagnitude();
     }
@@ -70,17 +70,17 @@ public class Vector
         => new Vector(a.x + b.x, a.y + b.y, a.z + b.z);
     public static Vector operator -(Vector a, Vector b)     // a-b
         => new Vector(a.x - b.x, a.y - b.y, a.z - b.z);
-    public static Vector operator *(Vector a, float f)      // a*float
+    public static Vector operator *(Vector a, double f)      // a*double
        => new Vector(a.x * f, a.y * f, a.z * f);
-    public static Vector operator *(float f, Vector a)      // float*a
+    public static Vector operator *(double f, Vector a)      // double*a
        => a*f;
-    public static Vector operator /(Vector a, float f)      // a/float
+    public static Vector operator /(Vector a, double f)      // a/double
        => new Vector(a.x / f, a.y / f, a.z / f);
-    /*public static float operator *(Vector a, Vector b)
+    /*public static double operator *(Vector a, Vector b)
        => GetScalarProduct(a, b);*/
     /*public override string ToString()
     {
-        return "(" + Math.Round(x, 2) + "|" + (float)Math.Round(y, 2) + "|" + (float)Math.Round(z, 2) + ")";
+        return "(" + Math.Round(x, 2) + "|" + Math.Round(y, 2) + "|" + Math.Round(z, 2) + ")";
     }*/
     public override string ToString()
     {
@@ -93,12 +93,12 @@ public class Vector
     public static Vector up = new Vector(0, 1, 0);
     public static Vector forward = new Vector(0, 0, 1);
     //статичные методы
-    public static float Distance(Vector startVector, Vector endVector)
+    public static double Distance(Vector startVector, Vector endVector)
     {
         Vector vector = endVector - startVector;
         return vector.GetMagnitude();
     }
-    public static Vector Lerp(Vector startVector, Vector endVector, float t)
+    public static Vector Lerp(Vector startVector, Vector endVector, double t)
     {
         Vector addVector = (endVector-startVector)*t;
         return startVector+addVector;

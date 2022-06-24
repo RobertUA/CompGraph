@@ -3,13 +3,13 @@ using System;
 
 class Camera
 {
-    public float HorizontalFOV;
-    public float VerticalFOV;
+    public double HorizontalFOV;
+    public double VerticalFOV;
     public Vector Position;
     public Vector Direction;
     public Screen TargetScreen;
     public Vector Right { get { return -Vector.Cross(Direction, Vector.up); } }
-    public Camera(Vector position, Vector direction, float horizontalFOV, float verticalFOV, Screen targetScreen)
+    public Camera(Vector position, Vector direction, double horizontalFOV, double verticalFOV, Screen targetScreen)
     {
         Position = position;
         Direction = direction;
@@ -25,7 +25,7 @@ class Camera
             + moveDirection.y * Vector.up
             + moveDirection.z * Direction;
     }
-    public void RotateY(float angle)
+    public void RotateY(double angle)
     {
         Direction = Direction.Rotate(angle, Vector.up);
     }

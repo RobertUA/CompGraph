@@ -3,8 +3,8 @@ public class Circle : Drawable
 {
     public Vector Center;
     public Vector Normal;
-    public float Diameter;
-    public Circle(Vector center, Vector normal, float diameter)
+    public double Diameter;
+    public Circle(Vector center, Vector normal, double diameter)
     {
         Center = center;
         Normal = normal;

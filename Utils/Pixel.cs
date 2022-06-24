@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 class Pixel
 {
-    public static float maxColorValue = 255;
+    public static double maxColorValue = 255;
     public int X, Y;
     public Screen Screen;
     public Vector Color = Vector.zero;
@@ -15,7 +15,7 @@ class Pixel
         X = x;
         Y = y;
     }
-    public void SetValue(HitInfo hit, float power = 1)
+    public void SetValue(HitInfo hit, double power = 1)
     {
         if (hit == null)
         {
@@ -29,7 +29,7 @@ class Pixel
         }
         else
         {
-            float scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
+            double scalarProduct = -Vector.Dot(Scene.Instance.LightSource.Direction, hit.Normal);
             // scalarProduct = 1;
             
             //
@@ -49,11 +49,11 @@ class Pixel
     }
     public void Update()
     {
-        float angleHorizontal = ((X - Screen.Width / 2f) / (Screen.Width / 2f)) * Screen.Camera.HorizontalFOV;
-        float angleVertical = -((Y - Screen.Height / 2f) / (Screen.Height / 2f)) * Screen.Camera.VerticalFOV;
+        double angleHorizontal = ((X - Screen.Width / 2f) / (Screen.Width / 2f)) * Screen.Camera.HorizontalFOV;
+        double angleVertical = -((Y - Screen.Height / 2f) / (Screen.Height / 2f)) * Screen.Camera.VerticalFOV;
         Vector direction = Screen.Camera.Direction.Rotate(angleHorizontal, Vector.up).Rotate(angleVertical, Screen.Camera.Right);
         HitInfo hit = Tools.Raycast(new Ray(Screen.Camera.Position, direction));
-        float power = 1;
+        double power = 1;
         if (hit != null && true)
         {
             Ray secondRay = new Ray(hit.Position, -Scene.Instance.LightSource.Direction);
