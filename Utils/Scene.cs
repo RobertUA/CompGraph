@@ -60,13 +60,13 @@ class Scene
         //booster.AddRange(ObjReader.ReadFromFile(Program.GetAbsolutePath("Assets\\car.obj")));
 
         Console.WriteLine("Nods count: " + booster.Nodes.Count);
-        foreach (var node in booster.Nodes)
+        /*foreach (var node in booster.Nodes)
         {
             for (int i = 0; i < 2; i++)
             {
                 Console.WriteLine(node.bounds[i].x + " " + node.bounds[i].y + " " + node.bounds[i].z);
             }
-        }
+        }*/
         //---- Start
         Screen.Update();
         Console.Beep();
