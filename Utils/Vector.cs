@@ -76,6 +76,8 @@ public class Vector
        => a*f;
     public static Vector operator /(Vector a, double f)      // a/double
        => new Vector(a.x / f, a.y / f, a.z / f);
+    public static Vector operator /(double f, Vector a)      // double/a
+       => new Vector(f / a.x, f / a.y, f / a.z);
     /*public static double operator *(Vector a, Vector b)
        => GetScalarProduct(a, b);*/
     /*public override string ToString()

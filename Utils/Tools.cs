@@ -11,6 +11,17 @@ public class Tools
             HitInfo hit = obj.GetIntersection(ray);
             if (hit != null) hits.Add(hit);
         }
+        foreach (var node in Scene.Instance.booster.Nodes)
+        {
+            if (node.IsIntersect(ray))
+            {
+                foreach (Drawable obj in node.Drawables)
+                {
+                    HitInfo hit = obj.GetIntersection(ray);
+                    if (hit != null) hits.Add(hit);
+                }
+            }
+        }
         if (hits.Count > 0) return hits;
         else return null;
     }
