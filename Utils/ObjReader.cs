@@ -52,9 +52,9 @@ class ObjReader
                     normals[i] = vn[int.Parse(subParts[2])-1].Value;
                     //Console.WriteLine(vertexes[i].x + " " + vertexes[i].y + " " + vertexes[i].z);
                 }
-                Vector normal = (normals[0] + normals[1] + normals[2]);
                 //Console.ReadKey();
-                triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2], normal));
+                triangles.Add(new Triangle(vertexes[0], vertexes[1], vertexes[2], 
+                    normals[0], normals[1], normals[2]));
             }
             
         }
@@ -67,7 +67,7 @@ class ObjReader
         {
             if (item.GetType() == typeof(Triangle))
             {
-                sw.WriteLine((item as Triangle).corners[0] + " " + (item as Triangle).corners[1] + " " + (item as Triangle).corners[2]);
+                sw.WriteLine((item as Triangle).vertexes[0] + " " + (item as Triangle).vertexes[1] + " " + (item as Triangle).vertexes[2]);
             }
         }
         sw.WriteLine("====");
