@@ -23,8 +23,8 @@ class Scene
         Instance = this;
         //---- Setup
         LightSource = new LightSource(new Vector(0, 0, 1).GetNormalized());
-        Screen = new Screen(1920, 1080);
-        //Screen = new Screen(1280, 720);
+        //Screen = new Screen(1920, 1080);
+        Screen = new Screen(1280, 720);
         //Screen = new Screen(300, 200);
         //Screen = new Screen(100, 40);
         Camera = new Camera(new Vector(1, 0, -1), new Vector(-1, 0, 2), 40, 25, Screen);
