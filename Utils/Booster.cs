@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 struct Node 
 {
-    public const double Dist = 0.5;
+    public const double Dist = 0.1;
     public Vector Position;
     public List<Triangle> Drawables;
     public Vector[] bounds;
     public Node(Vector position)
     {
-        Position = new Vector(position.x,
-            position.y,
-            position.z);
         Drawables = new List<Triangle>();
-        bounds = new Vector[2] 
-        { 
-            new Vector(Position.x - Dist, Position.y - Dist, Position.z - Dist),
-            new Vector(Position.x + Dist, Position.y + Dist, Position.z + Dist)
-        };
+        bounds = new Vector[2];
+        //
+        double half = Dist * 2;
+        Position = new Vector(Math.Round(position.x/ half) * half,
+            Math.Round(position.y / half) * half,
+            Math.Round(position.z / half) * half);
+        bounds[0] = new Vector(Position.x - Dist, Position.y - Dist, Position.z - Dist);
+        bounds[1] = new Vector(Position.x + Dist, Position.y + Dist, Position.z + Dist);
     }
     public bool IsIn(Vector point)
     {
@@ -96,7 +96,7 @@ class Booster
     }
     public void AddRange(List<Triangle> triangles)
     {
-        foreach (var triangle in triangles)
+        foreach(var triangle in triangles)
         {
             AddTriangle(triangle);
         }

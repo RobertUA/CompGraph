@@ -112,5 +112,19 @@ public class Vector
             return new Vector(x, y, z);
         }
     }
-
+    public Vector ApplyMatrix(Matrix matrix)
+    {
+        var current = new Matrix(4, 1, new double[,]
+        {
+            { x },
+            { y },
+            { z },
+            { 1 }
+        });
+        current = matrix * current;
+        x = current.Values[0, 0];
+        y = current.Values[1, 0];
+        z = current.Values[2, 0];
+        return this;
+    }
 }

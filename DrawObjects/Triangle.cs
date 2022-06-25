@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Triangle : Drawable
 {
@@ -119,5 +120,31 @@ public class Triangle : Drawable
             normal = normals[1] * u + normals[2] * v + normals[0] * (1 - v - u);
         }
         return new HitInfo(pos, normal.GetNormalized(), this);
+    }
+    public Triangle ApplyMatrix(Matrix matrix)
+    {
+        foreach (var vertex in vertexes)
+        {
+            vertex.ApplyMatrix(matrix);
+        }
+        if (normals[0] != null 
+            && matrix.Values[0, 3] == 0
+            && matrix.Values[1, 3] == 0
+            && matrix.Values[2, 3] == 0)
+        {
+            foreach (var normal in normals)
+            {
+                normal.ApplyMatrix(matrix).GetNormalized();
+            }
+        }
+        return this;
+    }
+    public static List<Triangle> ApplyMatrixForList(List<Triangle> triangles, Matrix matrix)
+    {
+        foreach (var triangle in triangles)
+        {
+            triangle.ApplyMatrix(matrix);
+        }
+        return triangles;
     }
 }
